@@ -32,9 +32,9 @@ mapwidth = 64
 
 #nest coordinates
 blackNestX = 0
-blackNestY = -1 * pixelsize * (mapheight + 1)
+blackNestY = -1 * pixelsize * mapheight
 redNestX = -1 * pixelsize * (mapwidth * 0.5)
-redNestY = -1 * pixelsize * (mapheight + 1)
+redNestY = -1 * pixelsize * mapheight
 
 #camera bounds
 leftBound = 0
