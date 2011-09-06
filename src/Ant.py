@@ -28,6 +28,7 @@ class Ant():
     '''
     Class for generating ants
     '''
+
     def __init__(self, parent, xpos, ypos, sprite):
         # Current position.
         self.pos = [xpos * 32, ypos * 32]
@@ -56,10 +57,18 @@ class Ant():
         self.parent = parent
         
         self.moving = False
+        self.hasFood = False
  
     def setSprite(self, sprite):
         self.sprite = sprite
         
+    def switchSprite(self, imgLocation):
+        '''Not sure if I should use the setSprite Command above'''
+        
+        #delete previous sprite/add new one
+        Globals.glwidget.deleteImage(self.sprite)
+        self.sprite = Globals.glwidget.createImage(imgLocation, 2, [32, 32, 32, 32], [self.pos[0], self.pos[1], 32, 32])
+
     def move(self):
         if len(self.path) or self.pos != self.nextPos:
             if self.moving:
@@ -148,19 +157,56 @@ class Ant():
         
         self.queue.popleft()
         
+    def posToTileCoords(self):
+        return (self.pos[0]/32, self.pos[1]/32)
+
+    def pickFoodUp(self, antLocationTile):
+        self.parent.removeOneFood(antLocationTile)
+        self.switchSprite(Globals.datadir + 'images/ants/yellowant_food.png')
+        self.sprite.setTextureRect(self.direction)
+        self.hasFood = True
+        self.queue.popleft() #I hope this is right...
+
+    def setFoodDown(self, antLocationTile):
+        self.parent.spawnOneFood(antLocationTile)
+        self.switchSprite(Globals.datadir + 'images/ants/yellowant.png')
+        self.sprite.setTextureRect(self.direction)
+        self.hasFood = False
+        self.queue.popleft() 
+    
     def doubleClick(self):
+
+        antLocationTile = self.posToTileCoords()
+        
         #User probably wants to pick up food
-        if(0):
-            self.queue.popleft()
-            
+        if (not self.hasFood) and (antLocationTile in self.parent.pos_food):
+            print 'Pick up food'
+            self.pickFoodUp(antLocationTile)
+        
+        #User probably wants to set food down (not over nest entrance/other food)
+        elif self.hasFood and self.parent.antHills[(self.pos[0]/32)][(self.pos[1]/32)] != 2:
+            if antLocationTile in self.parent.pos_food:
+                print 'No setting food on top of other food'
+                self.queue.popleft()
+            else:                
+                print 'Set down food'
+                self.setFoodDown(antLocationTile)
+
         #User probably wants to enter the nest
         elif(self.parent.antHills[(self.pos[0]/32)][(self.pos[1]/32)] == 2):
+            print 'Enter Nest'
             self.enterNest()
 
         #User probably wants to dig
         elif(self.parent.antHills[(self.pos[0]/32)][(self.pos[1]/32)] == 0):
+            print 'Dig Nest'
             self.dig()
-            
+        
+        #Who knows what the user wants to do? But we have to clear the queue event.
+        else:            
+            print 'Dbl clicking here does not do anything...'
+            self.queue.popleft()
+
     # Find a path using A* Manhattan
     def findPath(self):
         start = [self.pos[0] / 32, self.pos[1] / 32]
