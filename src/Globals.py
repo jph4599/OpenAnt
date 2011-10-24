@@ -30,11 +30,13 @@ pixelsize = 32
 mapheight = 32
 mapwidth = 64
 
-#nest coordinates
+game_is_running = False
+
+#nest camera coordinates
 blackNestX = 0
-blackNestY = -1 * pixelsize * mapheight
+blackNestY = -1 * pixelsize * (mapheight + 1)
 redNestX = -1 * pixelsize * (mapwidth * 0.5)
-redNestY = -1 * pixelsize * mapheight
+redNestY = -1 * pixelsize * (mapheight + 1)
 
 #camera bounds
 leftBound = 0
