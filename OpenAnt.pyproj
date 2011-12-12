@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ff012546-959f-42ef-88b7-21a30df7a2cd}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>src\main.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>src</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>OpenAnt</Name>
+    <RootNamespace>OpenAnt</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="data" />
+    <Folder Include="data\images" />
+    <Folder Include="data\images\ants" />
+    <Folder Include="data\images\ants\yellow" />
+    <Folder Include="data\images\foliage\" />
+    <Folder Include="data\images\food" />
+    <Folder Include="data\images\ground" />
+    <Folder Include="data\images\underground" />
+    <Folder Include="data\images\UI" />
+    <Folder Include="data\images\special" />
+    <Folder Include="data\music" />
+    <Folder Include="Downloads" />
+    <Folder Include="src" />
+    <Folder Include="src\algo" />
+    <Folder Include="src\const" />
+    <Folder Include="src\module" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="data\images\ant-player.png" />
+    <Content Include="data\images\ants.psd" />
+    <Content Include="data\images\ants\blackant.png" />
+    <Content Include="data\images\ants\yellowant.png" />
+    <Content Include="data\images\ants\yellowant_food.png" />
+    <Content Include="data\images\ants\yellow\E.png" />
+    <Content Include="data\images\ants\yellow\N.png" />
+    <Content Include="data\images\ants\yellow\NE.png" />
+    <Content Include="data\images\ants\yellow\NW.png" />
+    <Content Include="data\images\ants\yellow\S.png" />
+    <Content Include="data\images\ants\yellow\SE.png" />
+    <Content Include="data\images\ants\yellow\SW.png" />
+    <Content Include="data\images\ants\yellow\W.png" />
+    <Content Include="data\images\blackAnt.png" />
+    <Content Include="data\images\blackAntDiagonal.png" />
+    <Content Include="data\images\button.png" />
+    <Content Include="data\images\foliage\foliage1.png" />
+    <Content Include="data\images\foliage\foliage2.png" />
+    <Content Include="data\images\foliage\foliage3.png" />
+    <Content Include="data\images\foliage\rock1.png" />
+    <Content Include="data\images\foliage\rock2.png" />
+    <Content Include="data\images\foliage\rock3.png" />
+    <Content Include="data\images\foliage\rock4.png" />
+    <Content Include="data\images\foliage\rock5.png" />
+    <Content Include="data\images\foliage\rock6.png" />
+    <Content Include="data\images\food\food.png" />
+    <Content Include="data\images\ground\ground1.png" />
+    <Content Include="data\images\ground\ground2.png" />
+    <Content Include="data\images\ground\ground3.png" />
+    <Content Include="data\images\ground\ground4.png" />
+    <Content Include="data\images\ground\ground5.png" />
+    <Content Include="data\images\ground\ground6.png" />
+    <Content Include="data\images\redAnt.png" />
+    <Content Include="data\images\redAntDiagonal.png" />
+    <Content Include="data\images\special\nest.png" />
+    <Content Include="data\images\test.png" />
+    <Content Include="data\images\tile-dirt.png" />
+    <Content Include="data\images\UI\blackNest.png" />
+    <Content Include="data\images\UI\blackQueen.png" />
+    <Content Include="data\images\UI\experiment.png" />
+    <Content Include="data\images\UI\help.png" />
+    <Content Include="data\images\UI\map.png" />
+    <Content Include="data\images\UI\redNest.png" />
+    <Content Include="data\images\UI\redQueen.png" />
+    <Content Include="data\images\UI\spider.png" />
+    <Content Include="data\images\UI\yellowAnt.png" />
+    <Content Include="data\images\underground\underground1.png" />
+    <Content Include="data\images\underground\underground2.png" />
+    <Content Include="data\music\theme.ogg" />
+    <Content Include="Downloads\OpenAnt Alpha 2.zip" />
+    <Content Include="gpl-3.0.txt" />
+    <Content Include="README.md" />
+    <Content Include="src\.Ant.py.swp" />
+    <Content Include="src\module\build-darwin.sh" />
+    <Content Include="src\module\build-windows.sh" />
+    <Content Include="src\module\build.sh" />
+    <Content Include="src\module\glext.h" />
+    <Content Include="src\module\glmod.cpp" />
+    <Content Include="TODO" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\algo\astar.py" />
+    <Compile Include="src\algo\graph.py" />
+    <Compile Include="src\algo\__init__.py" />
+    <Compile Include="src\Ant.py" />
+    <Compile Include="src\const\constants.py" />
+    <Compile Include="src\const\__init__.py" />
+    <Compile Include="src\Food.py" />
+    <Compile Include="src\Globals.py" />
+    <Compile Include="src\GLWidget.py" />
+    <Compile Include="src\HealthWidget.py" />
+    <Compile Include="src\Image.py" />
+    <Compile Include="src\LeftPanel.py" />
+    <Compile Include="src\main.py" />
+    <Compile Include="src\Map.py" />
+    <Compile Include="src\MusPanel.py" />
+    <Compile Include="src\View.py" />
+    <Compile Include="src\WorkerAnt.py" />
+    <Compile Include="src\YellowAnt.py" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
